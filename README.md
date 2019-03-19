@@ -34,6 +34,16 @@ The `responder` is the website that receives the initiator's request.
 
 ## Proposed Solution
 
+### Federation Policy and `federation.txt`
+
+A website's `federation.txt` file provides guidance to other websites about the behavior they should expect from this site. 
+
+```json
+{
+  "policy_type": "DISALLOW" | "ALLOW" | 
+}
+```
+
 ### Creating and Destroying Federal Relationships
 
 Federal relationships are always consensual - each domain is free to agree to or refuse relationships with any other site/domain. These decisions _may_ follow a published policy, or they may not. Once a relationship is established, it is expected to be permanent, revoked only in cases where the other party operates in a manner at odds with the original expectations.
@@ -48,8 +58,8 @@ The body of the request must contain a JSON document with the following structur
 
 ```json
 {
-  'federation_type': 'RELATIONSHIP_REQUEST',
-  'requester_domain': ['subA.example.com', '*.subB.example.com']
+  "federation_type": "RELATIONSHIP_REQUEST",
+  "requester_domain": "example.com"
 }
 ```
 
